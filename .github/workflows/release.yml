@@ -13,14 +13,18 @@ jobs:
       - name: Prepare repository
         run: git fetch --unshallow --tags
 
-      - name: Install modules
-        run: yarn
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: true
 
       - name: Run build
-        run: yarn run build
+        run: pnpm run build
 
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npm run release
+          pnpm run release

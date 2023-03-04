@@ -8,16 +8,21 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        nodejs: [12, 14]
+        nodejs: [16, 18]
 
     steps:
     - uses: actions/checkout@v2
-
     # https://github.com/actions/setup-node
     - uses: actions/setup-node@v2-beta
       with:
         node-version: ${{ matrix.nodejs }}
 
-    - run: yarn install
-    - run: yarn lint
-    - run: yarn build
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      id: pnpm-install
+      with:
+        version: 7
+        run_install: true
+
+    - run: pnpm run lint
+    - run: pnpm run build
