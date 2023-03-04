@@ -14,13 +14,13 @@ jobs:
         run: git fetch --unshallow --tags
 
       - name: Install modules
-        run: yarn
+        run: pnpm install
 
       - name: Run build
-        run: yarn run build
+        run: pnpm run build
 
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npm run release
+          pnpm run release
