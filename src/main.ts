@@ -9,8 +9,9 @@ import {
 
 import { IbookPluginSettings, DEFAULT_SETTINGS } from "./config";
 // import { getBooks } from "./api";
-import sqlite3 from "sqlite3";
-import { open } from "sqlite";
+import { exec } from "./utils";
+import { $ } from 'zx'
+
 
 export default class IbookPlugin extends Plugin {
 	settings: IbookPluginSettings;
@@ -21,15 +22,10 @@ export default class IbookPlugin extends Plugin {
 		// This adds a settings tab so the user can configure various aspects of the plugin
 		this.addSettingTab(new IbookSettingTab(this.app, this));
 
-		const db = await open({
-			filename: "/tmp/database.db",
-			driver: sqlite3.Database,
-		});
-		console.log(db.getDatabaseInstance());
+		// const res = exec("echo \"SELECT * FROM ZBKLIBRARYASSET\" | sqlite3 /Users/legotime/Library/Containers/com.apple.iBooksX/Data/Documents/BKLibrary/BKLibrary-1-091020131601.sqlite -json")
 
-		// const res = await getBooks();
-
-		// console.log("ibook:",res);
+		const res = await $`ls -la`;
+		console.log("ibook:", res);
 
 		// This adds an editor command that can perform some operation on the current editor instance
 		this.addCommand({
@@ -42,7 +38,8 @@ export default class IbookPlugin extends Plugin {
 		});
 	}
 
-	onunload() {}
+	onunload() {
+	}
 
 	async loadSettings() {
 		this.settings = Object.assign(
