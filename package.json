@@ -1,15 +1,23 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "obsidian-ibook-plugin",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "This is a ibook plugin for Obsidian",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
+		"lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"release": "auto shipit",
 		"version": "node version-bump.mjs && git add manifest.json versions.json"
 	},
-	"keywords": [],
-	"author": "",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bingryan/obsidian-ibook-plugin.git"
+	},
+	"keywords": [
+		"obsidian"
+	],
+	"author": "bingryan",
 	"license": "MIT",
 	"devDependencies": {
 		"@types/node": "^16.11.6",

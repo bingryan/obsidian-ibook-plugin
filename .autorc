@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    "git-tag"
+  ],
+  "owner": "bingryan",
+  "repo": "obsidian-ibook-plugin",
+  "name": "bingryan",
+  "email": "bingryan@outlook.com",
+  "onlyPublishWithReleaseLabel": true
+}
