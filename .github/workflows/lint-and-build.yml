@@ -12,17 +12,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     # https://github.com/actions/setup-node
     - uses: actions/setup-node@v2-beta
       with:
         node-version: ${{ matrix.nodejs }}
 
-    - uses: pnpm/action-setup@v2
-      name: Install pnpm
-      id: pnpm-install
-      with:
-        version: 7
-        run_install: true
-
-    - run: pnpm run lint
-    - run: pnpm run build
+    - run: yarn install
+    - run: yarn lint
+    - run: yarn build
