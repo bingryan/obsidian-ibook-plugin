@@ -6,5 +6,5 @@
   "repo": "obsidian-ibook-plugin",
   "name": "bingryan",
   "email": "bingryan@outlook.com",
-  "onlyPublishWithReleaseLabel": true
+  "onlyPublishWithReleaseLabel": false
 }
