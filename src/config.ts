@@ -2,12 +2,41 @@ export const IBOOK_LIBRARY = '~/Library/Containers/com.apple.iBooksX/Data/Docume
 export const IBOOK_ANNOTATION = '~/Library/Containers/com.apple.iBooksX/Data/Documents/AEAnnotation/AEAnnotation_v10312011_1727_local.sqlite'
 export const IBOOK_RECENTLY = '~/Library/Containers/com.apple.iBooksX/Data/Documents/BCRecentlyOpenedBooksDB/BCRecentlyOpenedBooksDB.sqlite'
 export const IBOOK_SERIES = '~/Library/Containers/com.apple.iBooksX/Data/Documents/BKSeriesDatabase/BKSeries-1-012820141020.sqlite'
-export const IBOOK_SNAPSHOTS = '/Users/legotime/Library/Containers/com.apple.iBooksX/Data/Documents/BKSnapshotManager/BookSnapshots.sqlite'
+export const IBOOK_SNAPSHOTS = '~/Library/Containers/com.apple.iBooksX/Data/Documents/BKSnapshotManager/BookSnapshots.sqlite'
 export interface IbookPluginSettings {
-	mySetting: string;
+	output: string;
+	template: string;
 }
 
-export const DEFAULT_SETTINGS: IbookPluginSettings = {
-	mySetting: 'default'
-};
+const defaultTemplate = `
+---
+tags:
+- ibook/
+---
 
+# 📔 Book: {{library.ZSORTTITLE}}
+
+Author:: {{library.ZAUTHOR}}
+LANGUAGE:: {{library.ZLANGUAGE}}
+Book Path:: {{library.ZPATH}}
+
+---
+# 🔍 How I Discovered IT
+
+{{#each annotation}}
+{{#if this.ZFUTUREPROOFING5}}
+- {{this.ZFUTUREPROOFING5}}
+{{/if}}
+	{{#if this.ZANNOTATIONSELECTEDTEXT}}
+	- {{this.ZANNOTATIONSELECTEDTEXT}}
+	{{/if}}
+		{{#if this.ZANNOTATIONNOTE}}
+		- {{this.ZANNOTATIONNOTE}}
+		{{/if}}
+{{/each}}
+`
+
+export const DEFAULT_SETTINGS: IbookPluginSettings = {
+	output: 'ibook',
+	template: defaultTemplate
+};
