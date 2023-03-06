@@ -1,1 +1,1 @@
-# Obsidian ibook Plugin(WIP)
+# Obsidian ibook Plugin

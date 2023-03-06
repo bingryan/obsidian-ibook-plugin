@@ -1,6 +1,26 @@
 
 import * as child_process from 'child_process';
 import { promisify } from 'util';
+import IbookPlugin from "@/plugin";
+
+/**
+ * create folder 
+ *
+ * @param plugin
+ * @param path
+ */
+export async function tryCreateFolder(
+	plugin: IbookPlugin,
+	path: string
+) {
+	try {
+		await plugin.app.vault.createFolder(path);
+	} catch (error) {
+		if (!error.message.contains("Folder already exists")) {
+			throw error;
+		}
+	}
+}
 
 /**
  * Execute shell command
@@ -27,5 +47,9 @@ export async function shell(cmd: string) {
  */
 export async function sqlite3<T>(sql: string, sqliteDBPath: string): Promise<T> {
 	const command = `echo "${sql}" | sqlite3 ${sqliteDBPath} -json`;
-	return JSON.parse(await shell(command));
+	const res = await shell(command);
+	if (res === "") {
+		return JSON.parse("[]");
+	}
+	return JSON.parse(res);
 }

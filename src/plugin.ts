@@ -1,45 +1,38 @@
-
 import {
 	App,
-	Editor,
-	MarkdownView,
 	Plugin,
 	PluginSettingTab,
 	Setting,
 } from "obsidian";
 
-import { IbookPluginSettings, DEFAULT_SETTINGS } from "./config";
-import { getAllBook,getAllAnnotionBookId,getAnnotationBookId } from "./api";
+import { IbookPluginSettings, DEFAULT_SETTINGS } from "@/config";
+import { IExport, IBookExport } from "@/export";
+import { tryCreateFolder } from "@/utils";
 
 
 
 export default class IbookPlugin extends Plugin {
 	settings: IbookPluginSettings;
+	export: IExport;
 
 	async onload() {
 		await this.loadSettings();
+		await tryCreateFolder(
+			this,
+			this.settings.output,
+		);
 
 		// This adds a settings tab so the user can configure various aspects of the plugin
 		this.addSettingTab(new IbookSettingTab(this.app, this));
+		this.export = new IBookExport(this.settings, this);
 
-		const res = await getAllBook();
-		const idList = await getAllAnnotionBookId();
-		
-		console.log("ibook:", res);
-		console.log("ibook id list:", idList);
 
-		const annotation = await getAnnotationBookId("3FB4A96BF9A00F2589847EB9DD23674F");
-		console.log("annotation:", annotation);
-
-		
-		// This adds an editor command that can perform some operation on the current editor instance
 		this.addCommand({
-			id: "sample-editor-command",
-			name: "Sample editor command",
-			editorCallback: (editor: Editor, view: MarkdownView) => {
-				console.log(editor.getSelection());
-				editor.replaceSelection("Sample Editor Command");
-			},
+			id: 'Ibook-export-command',
+			name: 'IBook export',
+			callback: () => {
+				this.export.start();
+			}
 		});
 	}
 
@@ -80,10 +73,10 @@ class IbookSettingTab extends PluginSettingTab {
 			.addText((text) =>
 				text
 					.setPlaceholder("Enter your secret")
-					.setValue(this.plugin.settings.mySetting)
+					.setValue(this.plugin.settings.output)
 					.onChange(async (value) => {
 						console.log("Secret: " + value);
-						this.plugin.settings.mySetting = value;
+						this.plugin.settings.output = value;
 						await this.plugin.saveSettings();
 					})
 			);

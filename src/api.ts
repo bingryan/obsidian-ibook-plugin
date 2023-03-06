@@ -1,6 +1,6 @@
-import { LibraryAsset, Annotation } from "./types";
-import { IBOOK_LIBRARY, IBOOK_ANNOTATION } from "./config"
-import { sqlite3 } from './utils';
+import { LibraryAsset, Annotation, AnnotationAssetId, LibraryAssetId } from "@/types";
+import { IBOOK_LIBRARY, IBOOK_ANNOTATION } from "@/config"
+import { sqlite3 } from '@/utils';
 
 
 export async function getAllBook(): Promise<LibraryAsset[]> {
@@ -12,42 +12,44 @@ export async function getAllBook(): Promise<LibraryAsset[]> {
 	return await sqlite3<LibraryAsset[]>(sql, IBOOK_LIBRARY);
 }
 
-export async function getAllBookId(): Promise<string[]> {
+export async function getAllBookId(): Promise<LibraryAssetId[]> {
 	const sql = `
 		SELECT 
-			ZASSETID
+			DISTINCT ZASSETID
 		FROM ZBKLIBRARYASSET
 	`
-	return await sqlite3<string[]>(sql, IBOOK_LIBRARY);
+	return await sqlite3<LibraryAssetId[]>(sql, IBOOK_LIBRARY);
 }
 
-export async function getBookById(assetId: string): Promise<LibraryAsset> {
+export async function getBookById(assetId: string): Promise<LibraryAsset[]> {
 	const sql = `
 		SELECT 
 			* 
 		FROM ZBKLIBRARYASSET
-		WHERE ZASSETID == "${assetId}"
+		WHERE ZASSETID == '${assetId}'
 	`
-	return await sqlite3<LibraryAsset>(sql, IBOOK_LIBRARY);
+	return await sqlite3<LibraryAsset[]>(sql, IBOOK_LIBRARY);
 }
 
-export async function getAllAnnotionBookId(): Promise<string[]> {
+export async function getAllAnnotionBookId(): Promise<AnnotationAssetId[]> {
 	const sql = `
-	SELECT 
-		ZANNOTATIONASSETID 
-	FROM ZAEANNOTATION
-
-`
-	return await sqlite3<string[]>(sql, IBOOK_ANNOTATION);
+		SELECT 
+			DISTINCT ZANNOTATIONASSETID 
+		FROM ZAEANNOTATION
+		WHERE ZANNOTATIONASSETID IS NOT NULL
+		AND ZANNOTATIONASSETID != ''
+		AND ZANNOTATIONLOCATION IS NOT NULL
+	`
+	return await sqlite3<AnnotationAssetId[]>(sql, IBOOK_ANNOTATION);
 }
 
-export async function getAnnotationBookId(assetId: string): Promise<Annotation> {
+export async function getAnnotationBookId(assetId: string): Promise<Annotation[]> {
 	const sql = `
 		SELECT 
 			* 
 		FROM ZAEANNOTATION
-		WHERE ZANNOTATIONASSETID LIKE '${assetId}'
+		WHERE ZANNOTATIONASSETID == '${assetId}'
 		ORDER BY ZPLLOCATIONRANGESTART,ZFUTUREPROOFING6
 	`
-	return await sqlite3<Annotation>(sql, IBOOK_ANNOTATION);
+	return await sqlite3<Annotation[]>(sql, IBOOK_ANNOTATION);
 }
