@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-ibook-plugin",
-	"version": "1.0.2",
+	"version": "1.0.4",
 	"description": "plugin for apple ibook.",
 	"main": "main.js",
 	"scripts": {
