@@ -1,7 +1,7 @@
 {
 	"name": "obsidian-ibook-plugin",
 	"version": "1.0.2",
-	"description": "This is a ibook plugin for Obsidian",
+	"description": "plugin for apple ibook.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
