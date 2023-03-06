@@ -12,7 +12,7 @@ brew install sqlite3
 
 # How to Use
 
-`cmd+p` and input `iBook export`
+`cmd+p` and input `ibook export`
 
 ## How to Install
 
