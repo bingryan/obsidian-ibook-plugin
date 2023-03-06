@@ -4,11 +4,15 @@ It allows you to export your apple ibook hightlights and annotations into your o
 
 # Requirements
 
-The data of apple ibook exists in local sqlite3.
+The data of apple ibook exists in local sqlite3. and this plugin select database use the local SQLite3
+
 ```shell
 brew install sqlite3
 ```
 
+# How to Use
+
+`cmd+p` and input `iBook export`
 
 ## How to Install
 

@@ -3,6 +3,8 @@ import { IbookPluginSettings } from '@/config';
 import { Renderer } from '@/renderer';
 import IbookPlugin from '@/plugin'
 import * as path from "path";
+import { tryCreateFolder } from "@/utils";
+
 export interface IExport {
 	start(): void;
 }
@@ -23,6 +25,11 @@ export class IBookExport implements IExport {
 	
 	*/
 	async start() {
+		await tryCreateFolder(
+			this.plugin,
+			this.settings.output,
+		);
+
 		const getBookId = await getAllBookId();
 
 		if (getBookId.length > 0) {
