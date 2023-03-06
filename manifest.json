@@ -1,7 +1,7 @@
 {
   "id": "ibook",
   "name": "ibook",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "minAppVersion": "0.15.0",
   "description": "This is ibook plugin for Obsidian.",
   "author": "bingryan",
