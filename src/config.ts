@@ -16,19 +16,25 @@ tags:
 
 # 📔 Book: {{library.ZSORTTITLE}}
 
-Author:: {{library.ZAUTHOR}}
-LANGUAGE:: {{library.ZLANGUAGE}}
-Book Path:: {{library.ZPATH}}
+**Author**:: {{library.ZAUTHOR}}
+
+**LANGUAGE**:: {{library.ZLANGUAGE}}
+
+{{#if library.ZBOOKDESCRIPTION}}
+---
+# 🧾 Description
+	{{{library.ZBOOKDESCRIPTION}}}
+{{/if}}
 
 ---
 # 🔍 How I Discovered IT
 
 {{#each annotation}}
 {{#if this.ZFUTUREPROOFING5}}
-- {{this.ZFUTUREPROOFING5}}
+- 📚{{this.ZFUTUREPROOFING5}}
 {{/if}}
 	{{#if this.ZANNOTATIONSELECTEDTEXT}}
-	- {{this.ZANNOTATIONSELECTEDTEXT}}
+	- 🎯{{this.ZANNOTATIONSELECTEDTEXT}}
 	{{/if}}
 		{{#if this.ZANNOTATIONNOTE}}
 		- {{this.ZANNOTATIONNOTE}}
