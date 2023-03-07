@@ -17,8 +17,8 @@ export default class IbookPlugin extends Plugin {
 
 
 		this.addCommand({
-			id: 'Ibook-export-command',
-			name: 'IBook export',
+			id: 'ibook-export-command',
+			name: 'ibook export',
 			callback: () => {
 				
 				this.export.start();
