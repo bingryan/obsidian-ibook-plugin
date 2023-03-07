@@ -1,13 +1,13 @@
 # Obsidian ibook Plugin
 
-It allows you to export your apple ibook hightlights and annotations into your obsidian vault.
+It allows you to export your mac ibook hightlights and annotations into your obsidian vault.
 
 # Demo Screenshot
 
 ![](docs/images/screenshot.png)
 # Requirements
 
-The data of apple ibook exists in local sqlite3. and this plugin select database use the local SQLite3
+The data of mac ibook exists in local sqlite3. and this plugin select database use the local SQLite3
 
 ```shell
 brew install sqlite3
