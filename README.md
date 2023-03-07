@@ -22,6 +22,11 @@ brew install sqlite3
 - [x] export ibook hightlights and annotations into your obsidian vault.
 - [x] user-defined template
 
+# For User-Defined Templates
+
+1. templating language: [https://handlebarsjs.com/](https://handlebarsjs.com/)
+2. available parameters: [docs/parameters.md](docs/parameters.md)
+
 ## How to Install
 
 ### From within Obsidian
