@@ -4,7 +4,7 @@ The template uses `annotation instead of ZAEANNOTATION`, `library instead of ZBK
 - `ZAEANNOTATION.ZANNOTATIONSELECTEDTEXT` => `annotation.ZANNOTATIONSELECTEDTEXT`
 - `ZBKLIBRARYASSET.ZAUTHOR` => `library.ZAUTHOR`
 
-note: A book has one table with ZAEANNOTATION(book info), multiple ZAEANNOTATION(book annotation)
+note: A book has one table with ZBKLIBRARYASSET(book info), multiple ZAEANNOTATION(book annotation)
 
 ## Tables
 ```sql
