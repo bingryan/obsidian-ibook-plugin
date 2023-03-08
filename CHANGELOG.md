@@ -1,3 +1,15 @@
+# 1.0.9 (Wed Mar 08 2023)
+
+#### 🐛 Bug Fix
+
+- fix transform error [#18](https://github.com/bingryan/obsidian-ibook-plugin/pull/18) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 1.0.8 (Tue Mar 07 2023)
 
 #### 🐛 Bug Fix
