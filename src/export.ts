@@ -50,7 +50,7 @@ export class IBookExport implements IExport {
 
 				/// ZBOOKDESCRIPTION: Convert HTML to markdown
 				if (renderData.library.ZBOOKDESCRIPTION !== null) {
-					renderData.library.ZBOOKDESCRIPTION = this.html3markdown(
+					renderData.library.ZBOOKDESCRIPTION = this.html2markdown(
 						renderData.library.ZBOOKDESCRIPTION
 					);
 				}
@@ -79,7 +79,7 @@ export class IBookExport implements IExport {
 			}
 		}
 	}
-	html3markdown(html: string) {
+	html2markdown(html: string) {
 		return this.turndownService.turndown(html);
 	}
 }
