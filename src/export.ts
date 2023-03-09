@@ -1,7 +1,7 @@
 import { getAllBookId, getBookById, getAnnotationBookId } from "@/api";
 import { IbookPluginSettings } from "@/config";
 import { Renderer } from "@/renderer";
-import TurndownService from "turndown";
+import { htmlToMarkdown } from "obsidian";
 
 import IbookPlugin from "@/plugin";
 import * as path from "path";
@@ -15,13 +15,10 @@ export class IBookExport implements IExport {
 	private settings: IbookPluginSettings;
 	private renderer: Renderer;
 	public plugin: IbookPlugin;
-
-	private turndownService: TurndownService;
 	constructor(settings: IbookPluginSettings, plugin: IbookPlugin) {
 		this.settings = settings;
 		this.renderer = new Renderer(this.settings);
 		this.plugin = plugin;
-		this.turndownService = new TurndownService();
 	}
 
 	/**
@@ -50,7 +47,7 @@ export class IBookExport implements IExport {
 
 				/// ZBOOKDESCRIPTION: Convert HTML to markdown
 				if (renderData.library.ZBOOKDESCRIPTION !== null) {
-					renderData.library.ZBOOKDESCRIPTION = this.html2markdown(
+					renderData.library.ZBOOKDESCRIPTION = htmlToMarkdown(
 						renderData.library.ZBOOKDESCRIPTION
 					);
 				}
@@ -78,8 +75,5 @@ export class IBookExport implements IExport {
 				throw error;
 			}
 		}
-	}
-	html2markdown(html: string) {
-		return this.turndownService.turndown(html);
 	}
 }
