@@ -17,10 +17,9 @@ export default class IbookPlugin extends Plugin {
 
 
 		this.addCommand({
-			id: 'ibook-export-command',
+			id: 'export',
 			name: 'ibook export',
 			callback: () => {
-				
 				this.export.start();
 				//refresh the view
 				this.app.workspace.trigger("file-open");
