@@ -1,3 +1,16 @@
+# 1.0.11 (Thu Mar 09 2023)
+
+#### 🐛 Bug Fix
+
+- fix/release tips [#21](https://github.com/bingryan/obsidian-ibook-plugin/pull/21) ([@bingryan](https://github.com/bingryan))
+- fix release tips [#20](https://github.com/bingryan/obsidian-ibook-plugin/pull/20) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 1.0.10 (Wed Mar 08 2023)
 
 #### 🐛 Bug Fix
