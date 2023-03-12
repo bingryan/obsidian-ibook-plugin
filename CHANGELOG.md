@@ -1,3 +1,15 @@
+# 1.0.15 (Sun Mar 12 2023)
+
+#### 🐛 Bug Fix
+
+- fix: ci error [#26](https://github.com/bingryan/obsidian-ibook-plugin/pull/26) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 1.0.14 (Sun Mar 12 2023)
 
 #### 🐛 Bug Fix
