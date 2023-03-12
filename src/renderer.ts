@@ -1,6 +1,8 @@
-import * as Handlebars from 'handlebars';
+import * as handlebars from 'handlebars';
 import { IbookPluginSettings } from '@/config';
 import { RendererData } from '@/types';
+import helpers from 'handlebars-helpers';
+import groupBy from 'handlebars-group-by';
 
 export class Renderer {
 	private settings: IbookPluginSettings;
@@ -11,7 +13,9 @@ export class Renderer {
 
 	public render(data: RendererData) {
 		const source = this.settings.template;
-		const template = Handlebars.compile(source);
+		handlebars.registerHelper(groupBy(handlebars));
+		handlebars.registerHelper(helpers(handlebars));
+		const template = handlebars.compile(source);
 		return template(data);
 	}
 }

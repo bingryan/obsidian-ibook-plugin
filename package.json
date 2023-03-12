@@ -15,7 +15,8 @@
 		"url": "git+https://github.com/bingryan/obsidian-ibook-plugin.git"
 	},
 	"keywords": [
-		"obsidian"
+		"obsidian",
+		"ibook"
 	],
 	"author": "bingryan",
 	"license": "MIT",
@@ -34,6 +35,8 @@
 		"typescript": "4.7.4"
 	},
 	"dependencies": {
-		"handlebars": "^4.7.7"
+		"handlebars": "^4.7.7",
+		"handlebars-group-by": "^1.0.1",
+		"handlebars-helpers": "^0.10.0"
 	}
 }
