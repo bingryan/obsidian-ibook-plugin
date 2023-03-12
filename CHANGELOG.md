@@ -1,3 +1,22 @@
+# 1.0.16 (Sun Mar 12 2023)
+
+#### 🐛 Bug Fix
+
+- Fix/workflows [#30](https://github.com/bingryan/obsidian-ibook-plugin/pull/30) ([@bingryan](https://github.com/bingryan))
+- Fix/workflows [#29](https://github.com/bingryan/obsidian-ibook-plugin/pull/29) ([@bingryan](https://github.com/bingryan))
+- Fix/workflows [#28](https://github.com/bingryan/obsidian-ibook-plugin/pull/28) ([@bingryan](https://github.com/bingryan))
+- Fix/workflows [#27](https://github.com/bingryan/obsidian-ibook-plugin/pull/27) ([@bingryan](https://github.com/bingryan))
+
+#### ⚠️ Pushed to `master`
+
+- fix : Working directory is not clean, make sure all files are committed ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 1.0.15 (Sun Mar 12 2023)
 
 #### 🐛 Bug Fix
