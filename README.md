@@ -4,7 +4,7 @@ It allows you to export your mac ibook hightlights and annotations into your obs
 
 # Demo Screenshot
 
-![](docs/images/screenshot.png)
+![](docs/images/screenshot-2.png)
 # Requirements
 
 The data of mac ibook exists in local sqlite3. and this plugin select database use the local SQLite3
@@ -25,9 +25,10 @@ brew install sqlite3
 # For User-Defined Templates
 
 1. templating language: [https://handlebarsjs.com/](https://handlebarsjs.com/)
+   1. built-in loaded [handlebars-helpers](https://github.com/helpers/handlebars-helpers), [handlebars-group-by](https://github.com/shannonmoeller/handlebars-group-by)
 2. available parameters: [docs/parameters.md](docs/parameters.md)
 
-## How to Install
+If you don't know how to use these, you can visit [example](docs/example.md), and anyone is welcome to provide templates by PR
 
 ### From within Obsidian
 
