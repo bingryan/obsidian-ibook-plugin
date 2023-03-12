@@ -106,7 +106,6 @@ export interface LibraryAsset {
 	ZYEAR: string;
 }
 
-
 export interface Annotation {
 	Z_PK: number;
 	Z_ENT: number;
@@ -123,9 +122,9 @@ export interface Annotation {
 	ZANNOTATIONASSETID: string;
 	ZANNOTATIONCREATORIDENTIFIER: string;
 	ZANNOTATIONLOCATION: string;
-	ZANNOTATIONNOTE: string;
+	ZANNOTATIONNOTE: string | null;
 	ZANNOTATIONREPRESENTATIVETEXT: string;
-	ZANNOTATIONSELECTEDTEXT: string;
+	ZANNOTATIONSELECTEDTEXT: string | null;
 	ZANNOTATIONUUID: string;
 	ZFUTUREPROOFING1: string;
 	ZFUTUREPROOFING10: string;
@@ -134,7 +133,7 @@ export interface Annotation {
 	ZFUTUREPROOFING2: string;
 	ZFUTUREPROOFING3: string;
 	ZFUTUREPROOFING4: string;
-	ZFUTUREPROOFING5: string;
+	ZFUTUREPROOFING5: string | null;
 	ZFUTUREPROOFING6: string;
 	ZFUTUREPROOFING7: string;
 	ZFUTUREPROOFING8: string;
