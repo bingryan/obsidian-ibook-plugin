@@ -44,6 +44,7 @@ node_modules/
 jspm_packages/
 
 
+
 # Optional npm cache directory
 .npm
 
@@ -100,7 +101,7 @@ main.js
 
 # obsidian
 data.json
-styles.css
+# styles.css
 
 # Exclude macOS Finder (System Explorer) View States
 .DS_Store
