@@ -22,7 +22,7 @@ export default class IbookPlugin extends Plugin {
 			callback: () => {
 				this.export.start();
 				//refresh the view
-				this.app.workspace.trigger("file-open");
+				// this.app.workspace.trigger("file-open");
 			}
 		});
 	}

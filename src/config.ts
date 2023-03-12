@@ -29,17 +29,17 @@ tags:
 ---
 # 🔍 How I Discovered IT
 
-{{#each annotation}}
-{{#if this.ZFUTUREPROOFING5}}
-- 📚{{this.ZFUTUREPROOFING5}}
-{{/if}}
-	{{#if this.ZANNOTATIONSELECTEDTEXT}}
-	- 🎯{{this.ZANNOTATIONSELECTEDTEXT}}
+{{#group annotation by="ZFUTUREPROOFING5"}}
+- 📚{{value}}
+	{{#each items}}
+	{{#if ZANNOTATIONSELECTEDTEXT}}
+	- 🎯{{ZANNOTATIONSELECTEDTEXT}}
 	{{/if}}
-		{{#if this.ZANNOTATIONNOTE}}
-		- {{this.ZANNOTATIONNOTE}}
+		{{#if ZANNOTATIONNOTE}}
+		- ✍️{{ZANNOTATIONNOTE}}
 		{{/if}}
-{{/each}}
+	{{/each}}
+{{/group}}
 `
 
 export const DEFAULT_SETTINGS: IbookPluginSettings = {
