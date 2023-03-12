@@ -113,3 +113,5 @@ data.json
 .env
 
 main.css
+
+yarn.lock
