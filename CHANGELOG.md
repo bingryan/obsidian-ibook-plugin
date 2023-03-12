@@ -1,3 +1,15 @@
+# 1.0.13 (Sun Mar 12 2023)
+
+#### 🐛 Bug Fix
+
+- format annotation [#24](https://github.com/bingryan/obsidian-ibook-plugin/pull/24) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 1.0.12 (Sun Mar 12 2023)
 
 #### 🐛 Bug Fix
