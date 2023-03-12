@@ -1,3 +1,15 @@
+# 1.0.14 (Sun Mar 12 2023)
+
+#### 🐛 Bug Fix
+
+- docs: add example [#25](https://github.com/bingryan/obsidian-ibook-plugin/pull/25) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 1.0.13 (Sun Mar 12 2023)
 
 #### 🐛 Bug Fix
