@@ -1,3 +1,4 @@
+import { Annotation } from "./types";
 import { getAllBookId, getBookById, getAnnotationBookId } from "@/api";
 import { IbookPluginSettings } from "@/config";
 import { Renderer } from "@/renderer";
@@ -5,7 +6,7 @@ import { htmlToMarkdown } from "obsidian";
 
 import IbookPlugin from "@/plugin";
 import * as path from "path";
-import { tryCreateFolder } from "@/utils";
+import { tryCreateFolder, removeTags } from "@/utils";
 
 export interface IExport {
 	start(): void;
@@ -60,8 +61,22 @@ export class IBookExport implements IExport {
 
 	async getRenderDataById(bookId: string) {
 		const library = await getBookById(bookId);
-		const annotation = await getAnnotationBookId(bookId);
-		return { library: library[0], annotation: annotation };
+		const annotationList = await getAnnotationBookId(bookId);
+		return {
+			library: library[0],
+			annotation: annotationList.map(this.formatAnnotation),
+		};
+	}
+
+	formatAnnotation(annotation: Annotation) {
+		return {
+			...annotation,
+			ZFUTUREPROOFING5: removeTags(annotation.ZFUTUREPROOFING5),
+			ZANNOTATIONSELECTEDTEXT: removeTags(
+				annotation.ZANNOTATIONSELECTEDTEXT
+			),
+			ZANNOTATIONNOTE: removeTags(annotation.ZANNOTATIONNOTE),
+		};
 	}
 
 	save(contentName: string, content: string) {
