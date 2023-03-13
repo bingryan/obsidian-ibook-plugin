@@ -1,3 +1,15 @@
+# 1.0.17 (Mon Mar 13 2023)
+
+#### 🐛 Bug Fix
+
+- add setting: Not export no annotation book [#33](https://github.com/bingryan/obsidian-ibook-plugin/pull/33) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 1.0.16 (Sun Mar 12 2023)
 
 #### 🐛 Bug Fix
