@@ -1,7 +1,7 @@
 {
   "id": "ibook",
   "name": "ibook",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "minAppVersion": "0.15.0",
   "description": "plugin for apple ibook.",
   "author": "bingryan",
