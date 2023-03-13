@@ -45,7 +45,7 @@ export async function getAllAnnotionBookId(): Promise<AnnotationAssetId[]> {
 
 export async function getAnnotationBookId(assetId: string, filterNull=true): Promise<Annotation[]> {
 
-	var whereCondition = `WHERE ZANNOTATIONASSETID == '${assetId}'`;
+	let whereCondition = `WHERE ZANNOTATIONASSETID == '${assetId}'`;
 	if (filterNull) {
 		whereCondition += `AND ZANNOTATIONSELECTEDTEXT IS NOT NULL`;
 	}
