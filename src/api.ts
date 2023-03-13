@@ -43,12 +43,17 @@ export async function getAllAnnotionBookId(): Promise<AnnotationAssetId[]> {
 	return await sqlite3<AnnotationAssetId[]>(sql, IBOOK_ANNOTATION);
 }
 
-export async function getAnnotationBookId(assetId: string): Promise<Annotation[]> {
+export async function getAnnotationBookId(assetId: string, filterNull=true): Promise<Annotation[]> {
+
+	var whereCondition = `WHERE ZANNOTATIONASSETID == '${assetId}'`;
+	if (filterNull) {
+		whereCondition += `AND ZANNOTATIONSELECTEDTEXT IS NOT NULL`;
+	}
 	const sql = `
 		SELECT 
 			* 
 		FROM ZAEANNOTATION
-		WHERE ZANNOTATIONASSETID == '${assetId}'
+		${whereCondition}
 		ORDER BY ZPLLOCATIONRANGESTART,ZFUTUREPROOFING6
 	`
 	return await sqlite3<Annotation[]>(sql, IBOOK_ANNOTATION);

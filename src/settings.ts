@@ -37,7 +37,21 @@ export class IbookSettingTab extends PluginSettingTab {
 					})
 			);
 
-		new Setting(this.containerEl)
+		new Setting(containerEl)
+			.setName("Not export no annotation book")
+			.setDesc(
+				"When the book has no annotations, it will not be exported"
+			)
+			.addToggle((toggle) =>
+				toggle
+					.setValue(this.plugin.settings.notExportNoAnnotation)
+					.onChange(async (value: boolean) => {
+						this.plugin.settings.notExportNoAnnotation = value;
+						await this.plugin.saveSettings();
+					})
+		);
+
+		new Setting(containerEl)
 			.setName('template')
 			.setClass("ibook-template-item")
 			.addTextArea((text) => {

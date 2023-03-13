@@ -61,12 +61,13 @@ export class IBookExport implements IExport {
 
 	async getRenderDataById(bookId: string) {
 		const library = await getBookById(bookId);
-		const annotationList = await getAnnotationBookId(bookId);
+		const annotationList = await getAnnotationBookId(bookId, this.settings.notExportNoAnnotation);
 		return {
 			library: library[0],
 			annotation: annotationList.map(this.formatAnnotation),
 		};
 	}
+
 
 	formatAnnotation(annotation: Annotation) {
 		return {

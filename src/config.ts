@@ -5,7 +5,9 @@ export const IBOOK_SERIES = '~/Library/Containers/com.apple.iBooksX/Data/Documen
 export const IBOOK_SNAPSHOTS = '~/Library/Containers/com.apple.iBooksX/Data/Documents/BKSnapshotManager/BookSnapshots.sqlite'
 export interface IbookPluginSettings {
 	output: string;
+	notExportNoAnnotation: boolean;
 	template: string;
+
 }
 
 const defaultTemplate = `
@@ -44,5 +46,6 @@ tags:
 
 export const DEFAULT_SETTINGS: IbookPluginSettings = {
 	output: 'ibook',
+	notExportNoAnnotation: true,
 	template: defaultTemplate
 };
