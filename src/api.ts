@@ -44,10 +44,9 @@ export async function getAllAnnotionBookId(): Promise<AnnotationAssetId[]> {
 }
 
 export async function getAnnotationBookId(assetId: string, filterNull=true): Promise<Annotation[]> {
-
 	let whereCondition = `WHERE ZANNOTATIONASSETID == '${assetId}'`;
 	if (filterNull) {
-		whereCondition += `AND ZANNOTATIONSELECTEDTEXT IS NOT NULL`;
+		whereCondition += ` AND ZANNOTATIONSELECTEDTEXT IS NOT NULL`;
 	}
 	const sql = `
 		SELECT 
@@ -57,4 +56,14 @@ export async function getAnnotationBookId(assetId: string, filterNull=true): Pro
 		ORDER BY ZPLLOCATIONRANGESTART,ZFUTUREPROOFING6
 	`
 	return await sqlite3<Annotation[]>(sql, IBOOK_ANNOTATION);
+}
+
+export async function searchBookByName(name: string): Promise<LibraryAsset[]> {
+	const sql = `
+		SELECT 
+			* 
+		FROM ZBKLIBRARYASSET
+		WHERE ZTITLE LIKE '%${name}%'
+	`
+	return await sqlite3<LibraryAsset[]>(sql, IBOOK_LIBRARY);
 }
