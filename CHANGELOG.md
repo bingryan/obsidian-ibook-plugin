@@ -1,3 +1,15 @@
+# 2.0.0 (Sun Mar 19 2023)
+
+#### 💥 Breaking Change
+
+- feat: add single book logic [#34](https://github.com/bingryan/obsidian-ibook-plugin/pull/34) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 1.0.17 (Mon Mar 13 2023)
 
 #### 🐛 Bug Fix
