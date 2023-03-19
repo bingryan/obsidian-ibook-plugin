@@ -1,4 +1,4 @@
-import { Annotation } from "./types";
+import { Annotation } from "@/types";
 import { getAllBookId, getBookById, getAnnotationBookId } from "@/api";
 import { IbookPluginSettings } from "@/config";
 import { Renderer } from "@/renderer";
@@ -9,7 +9,8 @@ import * as path from "path";
 import { tryCreateFolder, removeTags } from "@/utils";
 
 export interface IExport {
-	start(): void;
+	all(): void;
+	generate(assetId: string): void;
 }
 
 export class IBookExport implements IExport {
@@ -28,46 +29,50 @@ export class IBookExport implements IExport {
 	2. LibraryAsset.ZBOOKDESCRIPTION is HTML, but we want is markdown
 	
 	*/
-	async start() {
+	async all() {
 		await tryCreateFolder(this.plugin, this.settings.output);
 
 		const getBookId = await getAllBookId();
 
 		if (getBookId.length > 0) {
 			for (let i = 0; i < getBookId.length; i++) {
-				const renderData = await this.getRenderDataById(
-					getBookId[i].ZASSETID
-				);
-
-				if (
-					renderData.annotation.length === 0 ||
-					renderData.library.ZTITLE === null
-				) {
-					continue;
-				}
-
-				/// ZBOOKDESCRIPTION: Convert HTML to markdown
-				if (renderData.library.ZBOOKDESCRIPTION !== null) {
-					renderData.library.ZBOOKDESCRIPTION = htmlToMarkdown(
-						renderData.library.ZBOOKDESCRIPTION
-					);
-				}
-
-				const content = this.renderer.render(renderData);
-				this.save(renderData.library.ZTITLE, content);
+				await this.generate(getBookId[i].ZASSETID);
 			}
 		}
 	}
 
+	async generate(assetId: string) {
+		const renderData = await this.getRenderDataById(assetId);
+
+		if (
+			renderData.annotation.length === 0 ||
+			renderData.library.ZTITLE === null
+		) {
+			return;
+		}
+
+		/// ZBOOKDESCRIPTION: Convert HTML to markdown
+		if (renderData.library.ZBOOKDESCRIPTION !== null) {
+			renderData.library.ZBOOKDESCRIPTION = htmlToMarkdown(
+				renderData.library.ZBOOKDESCRIPTION
+			);
+		}
+
+		const content = this.renderer.render(renderData);
+		this.save(renderData.library.ZTITLE, content);
+	}
+
 	async getRenderDataById(bookId: string) {
 		const library = await getBookById(bookId);
-		const annotationList = await getAnnotationBookId(bookId, this.settings.notExportNoAnnotation);
+		const annotationList = await getAnnotationBookId(
+			bookId,
+			this.settings.notExportNoAnnotation
+		);
 		return {
 			library: library[0],
 			annotation: annotationList.map(this.formatAnnotation),
 		};
 	}
-
 
 	formatAnnotation(annotation: Annotation) {
 		return {
