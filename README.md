@@ -15,12 +15,25 @@ brew install sqlite3
 
 # How to Use
 
-`cmd+p` and input `ibook export`
+### export all
+
+`cmd + p` and input `ibook export`
+
+### export by search
+
+`cmd + shift + b` and search by `book name/author`
+
+![](docs/images/screenshot-3.png)
 
 # Features
 
-- [x] export ibook hightlights and annotations into your obsidian vault.
-- [x] user-defined template
+[✓] support export by search book name/author
+
+[✓] export ibook hightlights and annotations into your obsidian vault.
+
+[✓] user-defined template
+
+[✗] More...
 
 # For User-Defined Templates
 
