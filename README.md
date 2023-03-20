@@ -43,7 +43,8 @@ brew install sqlite3
 
 If you don't know how to use these, you can visit [example](docs/example.md), and anyone is welcome to provide templates by PR
 
-### From within Obsidian
+# How to Install
+## From within Obsidian
 
 you can activate this plugin within Obsidian by doing the following:
 
