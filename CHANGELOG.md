@@ -1,3 +1,15 @@
+# 2.0.2 (Tue Mar 28 2023)
+
+#### 🐛 Bug Fix
+
+- fix title decode error [#38](https://github.com/bingryan/obsidian-ibook-plugin/pull/38) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 2.0.1 (Tue Mar 28 2023)
 
 #### 🐛 Bug Fix
