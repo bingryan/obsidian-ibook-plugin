@@ -1,3 +1,37 @@
+export interface GoodReadBook {
+	imageUrl: string
+	bookId: string
+	workId: string
+	bookUrl: string
+	from_search: boolean
+	from_srp: boolean
+	qid: string
+	rank: number
+	title: string
+	bookTitleBare: string
+	numPages: number
+	avgRating: string
+	ratingsCount: number
+	author: GoodReadBookAuthor
+	kcrPreviewUrl: any
+	description: GoodReadBookDescription
+  }
+  
+  export interface GoodReadBookAuthor {
+	id: number
+	name: string
+	isGoodreadsAuthor: boolean
+	profileUrl: string
+	worksListUrl: string
+  }
+  
+  export interface GoodReadBookDescription {
+	html: string
+	truncated: boolean
+	fullContentUrl: string
+  }
+  
+
 export interface RendererData {
 	library: LibraryAsset;
 	annotation: Annotation[];

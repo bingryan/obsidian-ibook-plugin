@@ -1,12 +1,12 @@
 import { Annotation } from "@/types";
-import { getAllBookId, getBookById, getAnnotationBookId } from "@/api";
+import { getAllBookId, getBookById, getAnnotationBookId } from "@/api/ibook";
 import { IbookPluginSettings } from "@/config";
 import { Renderer } from "@/renderer";
 import { htmlToMarkdown } from "obsidian";
 
 import IbookPlugin from "@/plugin";
 import * as path from "path";
-import { tryCreateFolder, removeTags } from "@/utils";
+import { tryCreateFolder, removeTags } from "@/util/misc";
 
 export interface IExport {
 	all(): void;

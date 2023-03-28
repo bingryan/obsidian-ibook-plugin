@@ -1,11 +1,13 @@
-import { Plugin } from "obsidian";
+import { Plugin, Editor } from "obsidian";
 import { IbookSettingTab } from "@/settings";
 import { IbookPluginSettings, DEFAULT_SETTINGS } from "@/config";
 import { IExport, IBookExport } from "@/export";
-import { LibraryAsset } from "@/types";
-import { getAllBooks } from "@/api";
-import { BookSearchModal } from "@/ui/search";
-import { tryCreateFolder } from "@/utils";
+import { LibraryAsset,GoodReadBook } from "@/types";
+import { getAllBooks } from "@/api/ibook";
+import { IBookSearchModal, GoodReadBookFuzzySuggestModal } from "@/ui/search";
+import { tryCreateFolder } from "@/util/misc";
+import { Fetch } from "@/util/net";
+
 
 export default class IbookPlugin extends Plugin {
 	settings: IbookPluginSettings;
@@ -35,23 +37,53 @@ export default class IbookPlugin extends Plugin {
 			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "b" }],
 			callback: () => {
 				tryCreateFolder(this, this.settings.output);
-				const modal = new BookSearchModal(this.app, this);
+				const modal = new IBookSearchModal(this.app, this);
 				modal.open();
+			},
+		});
+
+		this.addCommand({
+			id: "insert-annotion-by-search",
+			name: "insert annotion by search",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "i" }],
+			editorCallback: (editor) => {
+				this.handleIbookAnnotationForActiveFile(editor);
+				return true;
 			},
 		});
 	}
 
-	onunload() {}
+	onunload() { }
+
+	async handleIbookAnnotationForActiveFile(editor: Editor) {
+		const activeFile = await this.app.workspace.getActiveFile();
+		if (activeFile) {
+			// TODO: add setting
+			const term = activeFile.basename;
+			if (term) {
+				await this.searchGoodReadBook(editor,term);
+			}
+		}
+	}
+
+	async searchGoodReadBook(editor: Editor,term:string) {
+		const url = `https://www.goodreads.com/book/auto_complete?format=json&q=${term}`
+		const goodReadBooks = await Fetch.get<GoodReadBook>(url);
+		const modal = new GoodReadBookFuzzySuggestModal(this.app, this, editor,goodReadBooks);
+		modal.open();
+	}
+
+
+	async loadBookLibrary() {
+		this.bookLibrary = await getAllBooks();
+	}
+
 	async loadSettings() {
 		this.settings = Object.assign(
 			{},
 			DEFAULT_SETTINGS,
 			await this.loadData()
 		);
-	}
-
-	async loadBookLibrary() {
-		this.bookLibrary = await getAllBooks();
 	}
 
 	async saveSettings() {
