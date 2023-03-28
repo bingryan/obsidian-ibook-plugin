@@ -5,7 +5,7 @@ import {
 	LibraryAssetId,
 } from "@/types";
 import { IBOOK_LIBRARY, IBOOK_ANNOTATION } from "@/config";
-import { sqlite3 } from "@/util/misc";
+import { sqlite3 } from "@/utils/misc";
 
 export async function getAllBooks(): Promise<LibraryAsset[]> {
 	const sql = `

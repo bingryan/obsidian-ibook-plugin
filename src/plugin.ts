@@ -5,8 +5,8 @@ import { IExport, IBookExport } from "@/export";
 import { LibraryAsset,GoodReadBook } from "@/types";
 import { getAllBooks } from "@/api/ibook";
 import { IBookSearchModal, GoodReadBookFuzzySuggestModal } from "@/ui/search";
-import { tryCreateFolder } from "@/util/misc";
-import { Fetch } from "@/util/net";
+import { tryCreateFolder } from "@/utils/misc";
+import { Fetch } from "@/utils/net";
 
 
 export default class IbookPlugin extends Plugin {

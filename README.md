@@ -27,7 +27,7 @@ brew install sqlite3
 
 ### export book info by search [goodreads](https://www.goodreads.com/)
 
-`cmd + shift + i` and search by book info, and insert current cursor position
+`cmd + shift + i` use file name to search book info, and insert current cursor position
 
 ![](docs/images/screenshot-4.png)
 

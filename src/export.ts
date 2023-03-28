@@ -6,7 +6,7 @@ import { htmlToMarkdown } from "obsidian";
 
 import IbookPlugin from "@/plugin";
 import * as path from "path";
-import { tryCreateFolder, removeTags } from "@/util/misc";
+import { tryCreateFolder, removeTags } from "@/utils/misc";
 
 export interface IExport {
 	all(): void;
