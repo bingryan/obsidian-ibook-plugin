@@ -57,7 +57,16 @@ export class IBookExport implements IExport {
 				renderData.library.ZBOOKDESCRIPTION
 			);
 		}
-
+		
+		/// fix: #36
+		if (renderData.library.ZTITLE !== null) { 
+			renderData.library.ZTITLE = htmlToMarkdown(
+				renderData.library.ZTITLE
+			);
+			renderData.library.ZSORTTITLE = htmlToMarkdown(
+				renderData.library.ZSORTTITLE
+			);
+		}
 		const content = this.renderer.render(renderData);
 		this.save(renderData.library.ZTITLE, content);
 	}
