@@ -1,3 +1,16 @@
+# 2.0.1 (Tue Mar 28 2023)
+
+#### 🐛 Bug Fix
+
+- feat: add goodreads api [#37](https://github.com/bingryan/obsidian-ibook-plugin/pull/37) ([@bingryan](https://github.com/bingryan))
+- update readme [#35](https://github.com/bingryan/obsidian-ibook-plugin/pull/35) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 2.0.0 (Sun Mar 19 2023)
 
 #### 💥 Breaking Change
