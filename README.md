@@ -19,11 +19,17 @@ brew install sqlite3
 
 `cmd + p` and input `ibook export`
 
-### export by search
+### export single book by search
 
 `cmd + shift + b` and search by `book name/author`
 
 ![](docs/images/screenshot-3.png)
+
+### export book info by search [goodreads](https://www.goodreads.com/)
+
+`cmd + shift + i` use file name to search book info, and insert current cursor position
+
+![](docs/images/screenshot-4.png)
 
 # Features
 
@@ -32,6 +38,8 @@ brew install sqlite3
 [✓] export ibook hightlights and annotations into your obsidian vault.
 
 [✓] user-defined template
+
+[✓] search book info by [goodreads](https://www.goodreads.com/)
 
 [✗] More...
 
