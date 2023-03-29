@@ -6,7 +6,7 @@ import { htmlToMarkdown } from "obsidian";
 
 import IbookPlugin from "@/plugin";
 import * as path from "path";
-import { tryCreateFolder, removeTags } from "@/utils/misc";
+import { tryCreateFolder, removeTags,htmlDecode } from "@/utils/misc";
 
 export interface IExport {
 	all(): void;
@@ -60,10 +60,10 @@ export class IBookExport implements IExport {
 		
 		/// fix: #36
 		if (renderData.library.ZTITLE !== null) { 
-			renderData.library.ZTITLE = htmlToMarkdown(
+			renderData.library.ZTITLE = htmlDecode(
 				renderData.library.ZTITLE
 			);
-			renderData.library.ZSORTTITLE = htmlToMarkdown(
+			renderData.library.ZSORTTITLE = htmlDecode(
 				renderData.library.ZSORTTITLE
 			);
 		}

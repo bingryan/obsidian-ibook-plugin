@@ -63,3 +63,13 @@ export async function sqlite3<T>(
 	}
 	return JSON.parse(res);
 }
+
+/**
+ *  html decode
+ * @param input string to decode
+ * @returns 
+ */
+export function htmlDecode(input: string): string {
+	const doc = new DOMParser().parseFromString(input, "text/html");
+	return doc.documentElement.textContent || "";
+}
