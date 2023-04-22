@@ -22,6 +22,8 @@ tags:
 
 **LANGUAGE**:: {{library.ZLANGUAGE}}
 
+**Book Link**:: [Apple Books Link](ibooks://assetid/{{library.ZASSETID}})
+
 {{#if library.ZBOOKDESCRIPTION}}
 ---
 # 🧾 Description
