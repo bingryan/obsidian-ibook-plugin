@@ -4,7 +4,8 @@ It allows you to export your mac ibook hightlights and annotations into your obs
 
 # Demo Screenshot
 
-![](docs/images/screenshot-2.png)
+![](docs/images/screenshot-5.png)
+
 # Requirements(exists default)
 
 The data of mac ibook exists in local sqlite3. and this plugin select database use the local SQLite3
