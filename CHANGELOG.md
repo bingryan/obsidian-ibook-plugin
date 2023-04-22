@@ -1,3 +1,27 @@
+# 2.0.5 (Sat Apr 22 2023)
+
+#### 🐛 Bug Fix
+
+- feat: add Book Link for default template [#42](https://github.com/bingryan/obsidian-ibook-plugin/pull/42) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
+# 2.0.4 (Sat Apr 22 2023)
+
+#### 🐛 Bug Fix
+
+- update readme [#41](https://github.com/bingryan/obsidian-ibook-plugin/pull/41) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 2.0.3 (Wed Mar 29 2023)
 
 #### 🐛 Bug Fix
