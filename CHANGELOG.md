@@ -1,3 +1,15 @@
+# 2.0.6 (Sat Apr 22 2023)
+
+#### 🐛 Bug Fix
+
+- docs: add new screenshot [#43](https://github.com/bingryan/obsidian-ibook-plugin/pull/43) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 2.0.5 (Sat Apr 22 2023)
 
 #### 🐛 Bug Fix
