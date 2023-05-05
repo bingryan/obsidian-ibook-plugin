@@ -1,3 +1,15 @@
+# 2.0.7 (Fri May 05 2023)
+
+#### 🐛 Bug Fix
+
+- feat: add toggle for backup exist [#45](https://github.com/bingryan/obsidian-ibook-plugin/pull/45) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 2.0.6 (Sat Apr 22 2023)
 
 #### 🐛 Bug Fix
