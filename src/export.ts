@@ -2,11 +2,11 @@ import { Annotation } from "@/types";
 import { getAllBookId, getBookById, getAnnotationBookId } from "@/api/ibook";
 import { IbookPluginSettings } from "@/config";
 import { Renderer } from "@/renderer";
-import { htmlToMarkdown } from "obsidian";
+import { htmlToMarkdown, TFile, normalizePath } from "obsidian";
 
 import IbookPlugin from "@/plugin";
 import * as path from "path";
-import { tryCreateFolder, removeTags,htmlDecode } from "@/utils/misc";
+import { tryCreateFolder, removeTags, htmlDecode } from "@/utils/misc";
 
 export interface IExport {
 	all(): void;
@@ -57,9 +57,9 @@ export class IBookExport implements IExport {
 				renderData.library.ZBOOKDESCRIPTION
 			);
 		}
-		
+
 		/// fix: #36
-		if (renderData.library.ZTITLE !== null) { 
+		if (renderData.library.ZTITLE !== null) {
 			renderData.library.ZTITLE = htmlDecode(
 				renderData.library.ZTITLE
 			);
@@ -94,10 +94,21 @@ export class IBookExport implements IExport {
 		};
 	}
 
-	save(contentName: string, content: string) {
+	async save(contentName: string, content: string) {
+		const fileName = `${contentName}`
+			.replace(/:/g, '-')
+			.replace(/(\r\n|\n|\r|\/|\\\\)/gm, "-")
 		try {
+			const filePath = normalizePath(path.join(this.plugin.settings.output, `${fileName}.md`));
+			const isExist = await this.plugin.app.vault.adapter.exists(filePath);
+			if (this.plugin.settings.backupWhenExist && isExist) {
+				// backup file if file already exists
+				// issue: #44
+				const backupPath = normalizePath(path.join(this.plugin.settings.output, `${fileName}-bk-${Date.now()}.md`));
+				this.plugin.app.vault.adapter.rename(filePath, backupPath);
+			}
 			this.plugin.app.vault.create(
-				path.join(this.plugin.settings.output, `${contentName}.md`),
+				path.join(this.plugin.settings.output, `${fileName}.md`),
 				content
 			);
 		} catch (error) {

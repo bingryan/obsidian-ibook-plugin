@@ -49,8 +49,21 @@ export class IbookSettingTab extends PluginSettingTab {
 						this.plugin.settings.notExportNoAnnotation = value;
 						await this.plugin.saveSettings();
 					})
-		);
+			);
 
+		new Setting(containerEl)
+			.setName("backup old export markdown when exist")
+			.setDesc(
+				"if a export book with the same name is found, the previous export markdown will be backed up: bookname.md -> bookname.bk.time.md"
+			)
+			.addToggle((toggle) =>
+				toggle
+					.setValue(this.plugin.settings.backupWhenExist)
+					.onChange(async (value: boolean) => {
+						this.plugin.settings.backupWhenExist = value;
+						await this.plugin.saveSettings();
+					})
+			);
 		new Setting(containerEl)
 			.setName('template')
 			.setClass("ibook-template-item")
