@@ -2,7 +2,7 @@ import { Annotation } from "@/types";
 import { getAllBookId, getBookById, getAnnotationBookId } from "@/api/ibook";
 import { IbookPluginSettings } from "@/config";
 import { Renderer } from "@/renderer";
-import { htmlToMarkdown, TFile, normalizePath } from "obsidian";
+import { htmlToMarkdown, normalizePath } from "obsidian";
 
 import IbookPlugin from "@/plugin";
 import * as path from "path";
