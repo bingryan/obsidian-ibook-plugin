@@ -6,6 +6,7 @@ export const IBOOK_SNAPSHOTS = '~/Library/Containers/com.apple.iBooksX/Data/Docu
 export interface IbookPluginSettings {
 	output: string;
 	notExportNoAnnotation: boolean;
+	backupWhenExist: boolean;
 	template: string;
 
 }
@@ -49,5 +50,6 @@ tags:
 export const DEFAULT_SETTINGS: IbookPluginSettings = {
 	output: 'ibook',
 	notExportNoAnnotation: true,
+	backupWhenExist: true,
 	template: defaultTemplate
 };
