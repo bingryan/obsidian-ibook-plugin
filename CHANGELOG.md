@@ -1,3 +1,15 @@
+# 2.0.8 (Sun May 07 2023)
+
+#### 🐛 Bug Fix
+
+- docs(attention): highlighted text's color from ibook [#47](https://github.com/bingryan/obsidian-ibook-plugin/pull/47) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 2.0.7 (Fri May 05 2023)
 
 #### 🐛 Bug Fix
