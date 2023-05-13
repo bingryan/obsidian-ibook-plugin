@@ -1,3 +1,15 @@
+# 2.0.9 (Sat May 13 2023)
+
+#### 🐛 Bug Fix
+
+- fix: exec set maxBuffer to 100MB [#50](https://github.com/bingryan/obsidian-ibook-plugin/pull/50) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 2.0.8 (Sun May 07 2023)
 
 #### 🐛 Bug Fix
