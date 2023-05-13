@@ -38,7 +38,9 @@ export async function tryCreateFolder(plugin: IbookPlugin, path: string) {
 export async function shell(cmd: string) {
 	console.log(`$ ${cmd}`);
 	const exec = promisify(child_process.exec);
-	const { stdout, stderr } = await exec(cmd);
+	// issue: #49
+	// set maxBuffer to 100MB
+	const { stdout, stderr } = await exec(cmd, { maxBuffer: 100 * 1024 * 1024 });
 
 	if (stderr) {
 		console.error("Error: Command failed with code", stderr);
