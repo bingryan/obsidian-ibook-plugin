@@ -1,3 +1,15 @@
+# 2.0.10 (Thu May 25 2023)
+
+#### 🐛 Bug Fix
+
+- fix: cannot import all no annotation books [#52](https://github.com/bingryan/obsidian-ibook-plugin/pull/52) ([@machinly](https://github.com/machinly))
+
+#### Authors: 1
+
+- [@machinly](https://github.com/machinly)
+
+---
+
 # 2.0.9 (Sat May 13 2023)
 
 #### 🐛 Bug Fix
