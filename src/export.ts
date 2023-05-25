@@ -45,7 +45,7 @@ export class IBookExport implements IExport {
 		const renderData = await this.getRenderDataById(assetId);
 
 		if (
-			renderData.annotation.length === 0 ||
+			(renderData.annotation.length === 0 && this.settings.notExportNoAnnotation ) ||
 			renderData.library.ZTITLE === null
 		) {
 			return;
