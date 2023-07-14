@@ -41,11 +41,11 @@ export class IBookSearchModal extends IbookFuzzySuggestModal {
 		this.setInstructions([
 			{
 				command: "↵",
-				purpose: "to export select book note",
+				purpose: "to export selected book to a note",
 			},
 			{ command: "esc", purpose: "to dismiss" },
 		]);
-		this.setPlaceholder("Search by book's title or author");
+		this.setPlaceholder("Search by Book's Title or Author");
 	}
 
 	onChooseItem(item: LibraryAsset, evt: MouseEvent | KeyboardEvent): void {
@@ -89,7 +89,7 @@ export class GoodReadBookFuzzySuggestModal extends FuzzySuggestModal<GoodReadBoo
 			},
 			{ command: "esc", purpose: "to dismiss" },
 		]);
-		this.setPlaceholder("Search by book's info by goodreads");
+		this.setPlaceholder("Search by Book's info via goodreads");
 	}
 	onOpen() {
 		super.onOpen();
