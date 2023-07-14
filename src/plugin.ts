@@ -24,8 +24,8 @@ export default class IbookPlugin extends Plugin {
 		this.export = new IBookExport(this.settings, this);
 
 		this.addCommand({
-			id: "export all",
-			name: "ibook export all",
+			id: "Export All Highlights",
+			name: "Export all highlights from iBooks",
 			callback: () => {
 				this.export.all();
 			},
@@ -33,7 +33,7 @@ export default class IbookPlugin extends Plugin {
 
 		this.addCommand({
 			id: "export-by-search",
-			name: "export by search",
+			name: "Export by Search",
 			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "b" }],
 			callback: () => {
 				tryCreateFolder(this, this.settings.output);
@@ -44,7 +44,7 @@ export default class IbookPlugin extends Plugin {
 
 		this.addCommand({
 			id: "insert-annotion-by-search",
-			name: "insert annotion by search",
+			name: "Insert Annotion by Search",
 			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "i" }],
 			editorCallback: (editor) => {
 				this.handleIbookAnnotationForActiveFile(editor);
