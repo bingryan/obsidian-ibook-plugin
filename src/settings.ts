@@ -16,17 +16,17 @@ export class IbookSettingTab extends PluginSettingTab {
 	display(): void {
 		const { containerEl } = this;
 		containerEl.empty();
-		containerEl.createEl("h1", { text: "Obsidian ibook" });
+		containerEl.createEl("h1", { text: "Obsidian iBooks Plugin" });
 		containerEl.createEl("p", { text: "Created by " }).createEl("a", {
 			text: "bingryan 🤓",
 			href: "https://github.com/bingryan",
 		});
-		containerEl.createEl("h2", { text: "Obsidian ibook Settings" });
+		containerEl.createEl("h2", { text: "Settings" });
 
 
 		new Setting(containerEl)
-			.setName("Custom default output path")
-			.setDesc("default directory for ibook note export")
+			.setName("Custom Default Highlight Path")
+			.setDesc("Highlights and Notes will be placed here.")
 			.addText((text) =>
 				text
 					.setPlaceholder("Enter default output path")
@@ -38,9 +38,9 @@ export class IbookSettingTab extends PluginSettingTab {
 			);
 
 		new Setting(containerEl)
-			.setName("Not export no annotation book")
+			.setName("Omit books with zero annotations")
 			.setDesc(
-				"When the book has no annotations, it will not be exported"
+				"When a book has no annotations, note will not be created"
 			)
 			.addToggle((toggle) =>
 				toggle
@@ -52,9 +52,9 @@ export class IbookSettingTab extends PluginSettingTab {
 			);
 
 		new Setting(containerEl)
-			.setName("backup old export markdown when exist")
+			.setName("Backup old highlights if they exist")
 			.setDesc(
-				"if a export book with the same name is found, the previous export markdown will be backed up: bookname.md -> bookname.bk.time.md"
+				"If any previously imported highlights .md exist, they will be backed up as: bookname.md -> bookname.bk.time.md"
 			)
 			.addToggle((toggle) =>
 				toggle
