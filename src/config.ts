@@ -48,7 +48,7 @@ tags:
 `
 
 export const DEFAULT_SETTINGS: IbookPluginSettings = {
-	output: 'ibook',
+	output: 'apple-ibooks-highlighter',
 	notExportNoAnnotation: true,
 	backupWhenExist: true,
 	template: defaultTemplate
