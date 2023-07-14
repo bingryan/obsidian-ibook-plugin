@@ -1,7 +1,7 @@
 {
 	"name": "obsidian-ibook-plugin",
-	"version": "1.0.4",
-	"description": "plugin for apple ibook.",
+	"version": "1.0.5",
+	"description": "Plugin to import Highlight and Notes from Apple iBooks.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
@@ -16,7 +16,8 @@
 	},
 	"keywords": [
 		"obsidian",
-		"ibook"
+		"apple",
+		"iBooks"
 	],
 	"author": "bingryan",
 	"license": "MIT",
