@@ -1,3 +1,9 @@
+# 2.0.11 (Sat July 15 2023)
+
+#### 🐛 General Hygeine Cleanup
+
+- fix: Readme and Field text.
+
 # 2.0.10 (Thu May 25 2023)
 
 #### 🐛 Bug Fix
