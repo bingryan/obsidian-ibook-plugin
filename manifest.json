@@ -1,9 +1,9 @@
 {
-  "id": "ibook",
-  "name": "ibook",
+  "id": "apple-ibooks-highlighter",
+  "name": "Apple iBooks Highlight and Note Importer",
   "version": "2.0.10",
   "minAppVersion": "0.15.0",
-  "description": "plugin for apple ibook.",
+  "description": "Plugin to import Highlight and Notes from Apple iBooks.",
   "author": "bingryan",
   "authorUrl": "https://github.com/bingryan",
   "isDesktopOnly": true
