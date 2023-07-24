@@ -13,6 +13,11 @@ export interface IbookPluginSettings {
 
 const defaultTemplate = `
 ---
+book: {{library.ZSORTTITLE}}
+author: {{library.ZAUTHOR}}
+language: {{library.ZLANGUAGE}}
+last_opened: {{date ZLASTOPENDATE "YYYY/MM/DDTHH:mm:ss" }}
+last_highlight: {{date ZANNOTATIONMODIFICATIONDATE "YYYY/MM/DDTHH:mm:ss "}}
 tags:
 - ibook/
 ---
