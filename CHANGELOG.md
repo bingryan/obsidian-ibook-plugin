@@ -1,3 +1,15 @@
+# 2.0.11 (Mon Jul 24 2023)
+
+#### 🐛 Bug Fix
+
+- chore: add more metadata [#55](https://github.com/bingryan/obsidian-ibook-plugin/pull/55) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 2.0.10 (Thu May 25 2023)
 
 #### 🐛 Bug Fix
