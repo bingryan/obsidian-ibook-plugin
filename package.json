@@ -37,6 +37,7 @@
 	"dependencies": {
 		"handlebars": "^4.7.7",
 		"handlebars-group-by": "^1.0.1",
-		"handlebars-helpers": "^0.10.0"
+		"handlebars-helpers": "^0.10.0",
+		"moment": "^2.29.4"
 	}
 }
