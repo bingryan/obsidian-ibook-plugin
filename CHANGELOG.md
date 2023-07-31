@@ -1,3 +1,15 @@
+# 2.0.12 (Mon Jul 31 2023)
+
+#### 🐛 Bug Fix
+
+- feat: add dateFormat [#56](https://github.com/bingryan/obsidian-ibook-plugin/pull/56) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 1
+
+- [@bingryan](https://github.com/bingryan)
+
+---
+
 # 2.0.11 (Mon Jul 24 2023)
 
 #### 🐛 Bug Fix
