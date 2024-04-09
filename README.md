@@ -10,6 +10,8 @@ It allows you to export your mac ibook hightlights and annotations into your obs
 
 - If you want to use highlighted text's color from ibook, use  [this template](https://github.com/bingryan/obsidian-ibook-plugin/blob/master/docs/example.md#ibook-selected-colors)
 
+- plugin not work? -> `allow obsidian access your mac data`, more info visit [#63](https://github.com/bingryan/obsidian-ibook-plugin/issues/63)
+
 # Requirements(exists default)
 
 The data of mac ibook exists in local sqlite3. and this plugin select database use the local SQLite3
