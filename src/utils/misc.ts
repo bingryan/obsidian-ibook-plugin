@@ -9,7 +9,7 @@ import IbookPlugin from "@/plugin";
  */
 export function removeTags(str: string | null) {
 	if (str) {
-		return str.replace(/(\r\n|\n|\r)/gm, "");
+		return str.replace(/(\r\n|\n|\r)/gm, " ");
 	}
 	return str;
 }
