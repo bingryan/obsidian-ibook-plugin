@@ -2,7 +2,7 @@ import { Annotation } from "@/types";
 import { getAllBookId, getBookById, getAnnotationBookId } from "@/api/ibook";
 import { IbookPluginSettings } from "@/config";
 import { Renderer } from "@/renderer";
-import { htmlToMarkdown, normalizePath } from "obsidian";
+import { TFile, htmlToMarkdown, normalizePath } from "obsidian";
 
 import IbookPlugin from "@/plugin";
 import * as path from "path";
@@ -68,7 +68,7 @@ export class IBookExport implements IExport {
 			);
 		}
 		const content = this.renderer.render(renderData);
-		this.save(renderData.library.ZTITLE, content);
+		await this.save(renderData.library.ZTITLE, content);
 	}
 
 	async getRenderDataById(bookId: string) {
@@ -100,17 +100,26 @@ export class IBookExport implements IExport {
 			.replace(/(\r\n|\n|\r|\/|\\\\)/gm, "-")
 		try {
 			const filePath = normalizePath(path.join(this.plugin.settings.output, `${fileName}.md`));
-			const isExist = await this.plugin.app.vault.adapter.exists(filePath);
-			if (this.plugin.settings.backupWhenExist && isExist) {
-				// backup file if file already exists
-				// issue: #44
-				const backupPath = normalizePath(path.join(this.plugin.settings.output, `${fileName}-bk-${Date.now()}.md`));
-				this.plugin.app.vault.adapter.rename(filePath, backupPath);
+			const existing = this.plugin.app.vault.getAbstractFileByPath(filePath);
+			if (existing instanceof TFile) {
+				// skip if content is identical, avoid redundant backups (issue: #44, #69)
+				const oldContent = await this.plugin.app.vault.read(existing);
+				if (oldContent === content) {
+					return;
+				}
+				if (this.plugin.settings.backupWhenExist) {
+					// backup file if file already exists
+					// issue: #44
+					const backupPath = normalizePath(path.join(this.plugin.settings.output, `${fileName}-bk-${Date.now()}.md`));
+					await this.plugin.app.vault.rename(existing, backupPath);
+					await this.plugin.app.vault.create(filePath, content);
+				} else {
+					// overwrite in place so the existing file is never left missing
+					await this.plugin.app.vault.modify(existing, content);
+				}
+				return;
 			}
-			this.plugin.app.vault.create(
-				path.join(this.plugin.settings.output, `${fileName}.md`),
-				content
-			);
+			await this.plugin.app.vault.create(filePath, content);
 		} catch (error) {
 			if (!error.message.contains("file already exists")) {
 				throw error;

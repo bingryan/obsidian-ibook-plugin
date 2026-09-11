@@ -48,9 +48,9 @@ export class IBookSearchModal extends IbookFuzzySuggestModal {
 		this.setPlaceholder("Search by book's title or author");
 	}
 
-	onChooseItem(item: LibraryAsset, evt: MouseEvent | KeyboardEvent): void {
+	async onChooseItem(item: LibraryAsset, evt: MouseEvent | KeyboardEvent): Promise<void> {
 		if (evt instanceof MouseEvent || evt.key == "Enter") {
-			this.plugin.export.generate(item.ZASSETID);
+			await this.plugin.export.generate(item.ZASSETID);
 			new Notice(
 				`Exporting Book: 《${item.ZTITLE}》 to ${this.plugin.settings.output}`
 			);
