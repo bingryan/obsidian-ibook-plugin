@@ -24,7 +24,8 @@ export async function tryCreateFolder(plugin: IbookPlugin, path: string) {
 	try {
 		await plugin.app.vault.createFolder(path);
 	} catch (error) {
-		if (!error.message.contains("Folder already exists")) {
+		const message = error instanceof Error ? error.message : String(error);
+		if (!message.contains("Folder already exists")) {
 			throw error;
 		}
 	}
