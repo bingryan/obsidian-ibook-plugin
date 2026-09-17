@@ -1,3 +1,20 @@
+# 2.0.13 (Thu Sep 17 2026)
+
+#### 🐛 Bug Fix
+
+- chore: migrate to pnpm and upgrade dependencies (fix Release failure) [#76](https://github.com/bingryan/obsidian-ibook-plugin/pull/76) ([@bingryan](https://github.com/bingryan))
+- fix: Exported highlights don't have spaces in between new sentences [#75](https://github.com/bingryan/obsidian-ibook-plugin/pull/75) ([@webbrain-one](https://github.com/webbrain-one))
+- fix: skip re-export when content unchanged, avoid redundant backups [#74](https://github.com/bingryan/obsidian-ibook-plugin/pull/74) ([@cgongac](https://github.com/cgongac))
+- docs: update readme [#69](https://github.com/bingryan/obsidian-ibook-plugin/pull/69) ([@bingryan](https://github.com/bingryan))
+
+#### Authors: 3
+
+- [@bingryan](https://github.com/bingryan)
+- Ayuan-g ([@cgongac](https://github.com/cgongac))
+- WebBrain ([@webbrain-one](https://github.com/webbrain-one))
+
+---
+
 # 2.0.12 (Mon Jul 31 2023)
 
 #### 🐛 Bug Fix
