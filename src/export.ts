@@ -121,7 +121,8 @@ export class IBookExport implements IExport {
 			}
 			await this.plugin.app.vault.create(filePath, content);
 		} catch (error) {
-			if (!error.message.contains("file already exists")) {
+			const message = error instanceof Error ? error.message : String(error);
+			if (!message.contains("file already exists")) {
 				throw error;
 			}
 		}

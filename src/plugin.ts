@@ -10,10 +10,10 @@ import { Fetch } from "@/utils/net";
 
 
 export default class IbookPlugin extends Plugin {
-	settings: IbookPluginSettings;
-	export: IExport;
+	settings!: IbookPluginSettings;
+	export!: IExport;
 
-	bookLibrary: LibraryAsset[];
+	bookLibrary!: LibraryAsset[];
 
 	async onload() {
 		await this.loadSettings();
